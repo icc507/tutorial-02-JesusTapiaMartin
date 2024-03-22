@@ -12,13 +12,13 @@
 def arbolTrinario(numero):
     return [numero, [], [], []]
 
+
 def insertaEnArbolTrinario(arbol, numero):
     if numero == arbol[0]:
         if not arbol[2]:  
             arbol[2] = [numero]  
         else:
-            arbol[2].append(numero)
-    elif numero < arbol[0]:
+            arbol[2].append(numero)  
         if len(arbol[1]) == 0:  
             arbol[1] = arbolTrinario(numero)
         else:
@@ -46,7 +46,7 @@ def estaEnArbolTrinario(arbol, numero):
 datos = input().split()
 
 
-for i in range(len(datos)):
+for i in datos:
     if datos[i].isdigit():
         datos[i] = int(datos[i])
 
