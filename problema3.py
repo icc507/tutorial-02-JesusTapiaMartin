@@ -10,38 +10,24 @@
 #La salida debe ser
 #         [20, [8, [5, [], [], []], [], []], [], [30, [], [], [90, [], [90, [], [90, [], [], []], []], []]]]
 def arbolTrinario(numero):
-    return [numero, [], [], []]  
-
-
+    return [numero, [], [], []]
 
 def insertaEnArbolTrinario(arbol, numero):
-    # Si el número es igual, lo agregamos en el nodo de al medio
-    if (numero == arbol[0]):
-
-        # Si la lista en la rama del medio está vacía
+    if numero == arbol[0]:
         if not arbol[2]:  
             arbol[2] = [numero]  
         else:
             arbol[2].append(numero)
-
     elif numero < arbol[0]:
-        # Si no hay número en el nodo de la izquierda
         if len(arbol[1]) == 0:  
             arbol[1] = arbolTrinario(numero)
-
-        # Si hay número en la rama izquierda
         else:
             insertaEnArbolTrinario(arbol[1], numero) 
-    
     else:
-        # Si no hay número en el nodo de la derecha
         if len(arbol[3]) == 0:  
             arbol[3] = arbolTrinario(numero)
-        
-        # Si hay número en la rama derecha
         else:
-            insertaEnArbolTrinario(arbol[3], numero)  
-
+            insertaEnArbolTrinario(arbol[3], numero)
 
 
 def estaEnArbolTrinario(arbol, numero):
@@ -54,22 +40,20 @@ def estaEnArbolTrinario(arbol, numero):
     elif numero < arbol[0]:
         return estaEnArbolTrinario(arbol[1], numero)  
     else:
-        return estaEnArbolTrinario(arbol[3], numero) 
+        return estaEnArbolTrinario(arbol[3], numero)
 
 
-datos       = input().split()
-largoDatos  = len(datos)
+datos = input().split()
 
 
-for i in range(largoDatos):
-    if (datos[i].isdigit()):
+for i in range(len(datos)):
+    if datos[i].isdigit():
         datos[i] = int(datos[i])
 
 
-# Construcción del árbol trinario
 arbol = arbolTrinario(datos[0])
 for numero in datos[1:]:
     insertaEnArbolTrinario(arbol, numero)
 
-# Imprimir el árbol
+
 print(arbol)
