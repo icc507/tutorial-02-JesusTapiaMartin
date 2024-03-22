@@ -17,7 +17,12 @@ def arbolTrinario(numero):
 def insertaEnArbolTrinario(arbol, numero):
     # Si el número es igual, lo agregamos en el nodo de al medio
     if (numero == arbol[0]):
-        arbol[2].append(numero)
+
+        # Si la lista en la rama del medio está vacía
+        if not arbol[2]:  
+            arbol[2] = [numero]  
+        else:
+            arbol[2].append(numero)
 
     elif numero < arbol[0]:
         # Si no hay número en el nodo de la izquierda
