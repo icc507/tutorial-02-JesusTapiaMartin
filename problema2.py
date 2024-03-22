@@ -7,5 +7,13 @@
 #         20 90 hola jiji 77
 #La salida debe ser
 #         (77, 'jiji', 'hola', 90, 20)
-t = input()
+t           = input().split()
+largoT      = len(t)
+tInvertido  = reversed(t)
+
+for i in range(largoT):
+    if (t[i].isdigit()):
+        t[i] = int(t[i])
+
+t = tuple(t)
 print(t)
